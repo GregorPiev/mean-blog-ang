@@ -1,0 +1,39 @@
+<div class="text-center container">
+	<form (submit)="signUp($event)">
+		<h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+
+		<input
+			type="name"
+			id="inputEmail"
+			class="form-control"
+			placeholder="Name"
+			[(ngModel)]="name"
+		/>
+		<input
+			type="login"
+			id="inputLogin"
+			class="form-control"
+			placeholder="Login"
+			[(ngModel)]="login"
+		/>
+		<input
+			type="email"
+			name="inputEmail"
+			class="form-control"
+			placeholder="Email address"
+			[(ngModel)]="email"
+		/>
+
+		<input
+			type="password"
+			name="inputPassword"
+			class="form-control"
+			placeholder="Password"
+			[(ngModel)]="password"
+		/>
+		<button class="btn btn-lg btn-primary btn-block mt-3" type="submit">
+			Sign up
+		</button>
+		<p class="mt-5 mb-3 text-muted">©2020</p>
+	</form>
+</div>

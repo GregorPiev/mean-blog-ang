@@ -1,0 +1,55 @@
+<div class="nav-scroller py-1 mb-2">
+	<nav class="nav d-flex justify-content-between">
+		<a
+			*ngFor="let item of menu"
+			class="p-2 text-muted"
+			(click)="setCategory(item)"
+			>{{ item }}</a
+		>
+	</nav>
+</div>
+
+<div class="row d-flex">
+	<div class="figure">
+		<img
+			class="photo"
+			src="https://static2-viaggi.corriereobjects.it/wp-content/uploads/2020/08/cosa-fare-lago-di-braies-barche-di-legno-a-noleggio-1024x683.jpg"
+			alt=""
+		/>
+		<div class="col-md-8 px-0 p-5">
+			<h1 class="display-4 font-italic">{{ Greeting }}</h1>
+			<p class="lead my-3">{{ About }}</p>
+			<p class="lead mb-0">
+				<a [routerLink]="['/reg']" class="text-white font-weight-bold"
+					>Registration...</a
+				>
+			</p>
+		</div>
+	</div>
+
+	<div class="col-md-12" *ngIf="!!!posts.length">
+		<app-loading></app-loading>
+	</div>
+
+	<div class="col-md-4" *ngFor="let post of posts | sorting: category">
+		<div class="mb-4 box-shadow p-0">
+			<quill-view
+				class="card-img-top img-responsive"
+				[content]="post.photo"
+			></quill-view>
+
+			<div class="card-body mb-3">
+				<div class="m-0 d-flex justify-content-between align-items-center">
+					<strong class="mb-2 text-primary">{{ post.category }}</strong>
+					<small class="text-muted">{{ post.date | date: "short" }}</small>
+				</div>
+				<h4 class="m-0">
+					<a [routerLink]="['post', post._id]" class="text-dark">
+						{{ post.title }}
+					</a>
+				</h4>
+				<quill-view class="card-text" [content]="post.info"></quill-view>
+			</div>
+		</div>
+	</div>
+</div>

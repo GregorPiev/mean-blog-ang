@@ -1,0 +1,105 @@
+<div class="container">
+	<form [formGroup]="postForm" (ngSubmit)="createPost()">
+		<h1 class="h3 mb-3 font-weight-normal">Create Post</h1>
+		<div class="form-group">
+			<label for="category">Category</label>
+			<select
+				class="form-control"
+				id="category"
+				name="category"
+				formControlName="category"
+			>
+				<option selected>Choose category</option>
+				<option *ngFor="let category of optionCategory" value="{{ category }}">
+					{{ category }}
+				</option>
+			</select>
+			<div
+				class="alert alert-danger"
+				*ngIf="
+					postForm.controls['category'].invalid &&
+					postForm.controls['category'].touched
+				"
+			>
+				Not selected category
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="title">Title</label>
+
+			<input
+				type="text"
+				class="form-control"
+				id="title"
+				name="title"
+				placeholder="Title"
+				formControlName="title"
+			/>
+			<div
+				class="alert alert-danger"
+				*ngIf="
+					postForm.controls['title'].invalid &&
+					postForm.controls['title'].touched
+				"
+			>
+				<div *ngIf="postForm.controls['title'].errors.required">
+					Not defined title
+				</div>
+				<div *ngIf="postForm.controls['title'].errors.minlength">
+					Title must be at last 6 characters
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="info">Information</label>
+			<quill-editor
+				placeholder="Information"
+				name="info"
+				formControlName="info"
+			></quill-editor>
+			<div
+				class="alert alert-danger"
+				*ngIf="
+					postForm.controls['info'].invalid && postForm.controls['info'].touched
+				"
+			>
+				<div *ngIf="postForm.controls['info'].errors.required">
+					Not defined information text
+				</div>
+				<div *ngIf="postForm.controls['info'].errors.minlength">
+					Information text must be at last 16 characters
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="exampleFormControlFile1">Photo</label>
+			<quill-editor
+				placeholder="Photo"
+				name="photo"
+				formControlName="photo"
+			></quill-editor>
+			<div
+				class="alert alert-danger"
+				*ngIf="
+					postForm.controls['photo'].invalid &&
+					postForm.controls['photo'].touched
+				"
+			>
+				Not choosed photo
+			</div>
+		</div>
+
+		<div class="form-group">
+			<button
+				type="submit"
+				class="btn btn-lg btn-block btn-primary"
+				[disabled]="postForm.invalid"
+			>
+				Create
+			</button>
+		</div>
+	</form>
+</div>

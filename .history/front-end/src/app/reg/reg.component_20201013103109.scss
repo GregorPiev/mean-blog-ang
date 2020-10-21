@@ -1,0 +1,11 @@
+.container{
+  max-width: 400px;
+  margin-top: 6rem;
+}
+
+
+.btn:disabled {
+  cursor: wait;
+  background-color: red;
+}
+

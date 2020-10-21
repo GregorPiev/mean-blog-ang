@@ -1,0 +1,21 @@
+.figure{
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+  color: white;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+.photo{
+  position: absolute;
+  width: 100%;
+  margin: -10% 0 0 0 ;
+}
+.card-body {
+  margin-top: -1.5 rem;
+}
+.ql-snow .ql-editor img {
+    width: 33% !important;
+  height: 250px !important;
+border: 1px solid red !important;
+}

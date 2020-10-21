@@ -1,0 +1,86 @@
+<div class="text-center container">
+	<form #form="ngForm" (ngSubmit)="signUp()" class="form-group">
+		<h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+
+		<input
+			type="text"
+			name="name"
+			id="inputName"
+			class="form-control mt-1"
+			placeholder="Name"
+			[(ngModel)]="name"
+			required
+			#inputName="ngModel"
+		/>
+		<div
+			*ngIf="inputName.invalid && (inputName.touched || inputName.dirty)"
+			class="alert alert-danger text-left"
+		>
+			Mandatory text
+		</div>
+		<input
+			type="text"
+			name="login"
+			id="inputLogin"
+			class="form-control mt-1"
+			placeholder="Login"
+			[(ngModel)]="login"
+			required
+			#inputLogin="ngModel"
+		/>
+		<div
+			*ngIf="inputLogin.invalid && (inputLogin.touched || inputLogin.dirty)"
+			class="alert alert-danger text-left"
+		>
+			Mandatory text
+		</div>
+
+		<input
+			type="email"
+			name="email"
+			id="inputEmail"
+			class="form-control mt-1"
+			placeholder="Email address"
+			[(ngModel)]="email"
+			required
+			#inputEmail="ngModel"
+		/>
+		<div
+			*ngIf="inputEmail.invalid && (inputEmail.touched || inputEmail.dirty)"
+			class="alert alert-danger text-left"
+		>
+			Mandatory text
+		</div>
+
+		<input
+			type="password"
+			name="password"
+			name="inputPassword"
+			class="form-control mt-1"
+			placeholder="Password"
+			[(ngModel)]="password"
+			required
+			#inputPassword="ngModel"
+		/>
+		<div
+			*ngIf="
+				inputPassword.invalid && (inputPassword.touched || inputPassword.dirty)
+			"
+			class="alert alert-danger text-left"
+		>
+			Mandatory text
+		</div>
+
+		<p *ngIf="waitingToCompleting" class="text-center mb-3">
+			<app-loading></app-loading>
+		</p>
+
+		<button
+			class="btn btn-lg btn-primary btn-block mt-3"
+			type="submit"
+			[disabled]="!form.valid"
+		>
+			Sign up
+		</button>
+	</form>
+</div>

@@ -1,0 +1,11 @@
+.container {
+    max-width: 900px;
+    margin-top: 3rem;
+}
+input.ng-touched.ng-invalid {
+    border: solid red 2px;
+}
+input.ng-touched.ng-valid {
+    border: solid green 2px;
+}
+

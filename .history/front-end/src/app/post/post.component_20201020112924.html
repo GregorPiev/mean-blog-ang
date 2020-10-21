@@ -1,0 +1,8 @@
+<div class="container" *ngIf="post$ | async as post; else loading">
+	<h1>{{ post.title }}</h1>
+</div>
+<ng-template #loading>
+	<p class="text-center">
+    <h4>Loading...</h4>
+</p>
+</ng-template>
