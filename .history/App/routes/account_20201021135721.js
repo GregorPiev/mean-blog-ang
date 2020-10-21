@@ -46,7 +46,7 @@ router.post('/auth', (req, res, next) => {
                 return res.json({
                     success: true,
                     msg: 'This user was found.',
-                    token: 'JWT ' + token,
+                    token: 'JWT' + token,
                     user: {
                         id: user._id,
                         name: user.name,

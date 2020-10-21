@@ -46,7 +46,7 @@ router.post('/auth', (req, res, next) => {
                 return res.json({
                     success: true,
                     msg: 'This user was found.',
-                    token: 'JWT ' + token,
+                    token: 'JWT' + token,
                     user: {
                         id: user._id,
                         name: user.name,
@@ -85,7 +85,7 @@ router.post('/post', passport.authenticate('jwt', { session: false }), async (re
         res.json({ success: false, msg: 'Crash adding new Post:' + err });
     }
 })
-router.put('/post', passport.authenticate('jwt', { session: false }), async (req, res, next) => {
+router.put('/post', async (req, res, next) => {
     try {
         const { _id } = req.body;
         const post = await Post.findById(_id);

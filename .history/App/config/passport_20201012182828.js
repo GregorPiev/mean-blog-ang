@@ -6,7 +6,7 @@ var JwtStrategy = require('passport-jwt').Strategy,
 
 module.exports = function (passport) {
     var opts = {}
-    opts.jwtFromRequest = ExtractJwt.fromAuthHeaderWithScheme('jwt');
+    opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
     opts.secretOrKey = config.SESSION_SECRET;
     // opts.issuer = 'accounts.examplesoft.com';
     // opts.audience = 'yoursite.net';
